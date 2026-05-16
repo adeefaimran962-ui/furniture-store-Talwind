@@ -1,0 +1,46 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap');
+@import "tailwindcss";
+
+/* ── Dark-mode variant: triggered by .dark class on <html> ── */
+@custom-variant dark (&:where(.dark, .dark *));
+
+/* ── Design tokens ── */
+:root {
+  @apply bg-white text-[#1A1A1A];
+  --brand-primary:   #B8860B;
+  --brand-secondary: #8B6508;
+  --brand-third:     #F4ECE1;
+  --brand-fourth:    #FAF9F6;
+  --brand-accent:    #2C2C2C;
+  --transition:      0.3s ease;
+}
+
+.dark {
+  @apply bg-[#111111] text-[#F0EDE8];
+}
+
+body {
+  @apply font-sans m-0;
+  font-family: 'Inter', sans-serif;
+  transition: background var(--transition), color var(--transition);
+}
+
+/* Typography — clamp() sizes can't be done inline */
+h1 { font-family: 'Playfair Display', serif; font-size: clamp(2rem, 5vw, 3.2rem); font-weight: 700; line-height: 1.2; margin: 0 0 0.5rem; }
+h2 { font-family: 'Playfair Display', serif; font-size: clamp(1.3rem, 3vw, 2rem);  font-weight: 600; margin: 0 0 0.5rem; }
+h3 { font-family: 'Playfair Display', serif; font-size: clamp(1rem, 2vw, 1.3rem);  font-weight: 600; margin: 0 0 0.4rem; }
+h4 { font-family: 'Inter', sans-serif; font-size: 0.8rem; font-weight: 600; text-transform: uppercase; letter-spacing: 2px; margin: 0 0 0.4rem; color: #999; }
+p  { font-size: 0.95rem; line-height: 1.8; margin: 0 0 0.75rem; }
+a  { text-decoration: none; color: inherit; }
+
+/* Table striping — nth-child can't be done inline */
+table tbody tr:nth-child(odd)  { background: #FAFAFA; }
+table tbody tr:nth-child(even) { background: #FAF9F6; }
+table tbody tr:hover           { background: #F4ECE1; cursor: pointer; }
+table tbody tr:last-child td   { border-bottom: none; }
+.dark table tbody tr:nth-child(odd)  { background: #1E1E1E; }
+.dark table tbody tr:nth-child(even) { background: #252525; }
+.dark table tbody tr:hover           { background: #2a2a2a; }
+
+/* Chart canvas fill */
+.chart-canvas { width: 100% !important; height: 100% !important; }
