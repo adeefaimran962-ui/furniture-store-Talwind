@@ -58,6 +58,25 @@ export default function Register() {
           Already have an account?{' '}
           <Link to="/login" className="text-[#B8860B] font-semibold hover:text-[#8B6508]">Sign In</Link>
         </p>
+
+        {/* Membership perks */}
+        <div className="mt-7 pt-6 border-t border-[#EEEEEE] dark:border-[#2A2A2A]">
+          <p className="text-center text-[0.72rem] text-[#999] uppercase tracking-[1px] font-['Inter'] mb-4">Why Join DECORA?</p>
+          <div className="grid grid-cols-2 gap-3">
+            {[
+              { icon: '🎁', title: 'Welcome Gift',    desc: '10% off your first order' },
+              { icon: '🚚', title: 'Free Delivery',   desc: 'On orders over $2,000' },
+              { icon: '🎨', title: 'Custom Orders',   desc: 'Bespoke sizing & finishes' },
+              { icon: '⭐', title: 'Early Access',    desc: 'New collections first' },
+            ].map(({ icon, title, desc }) => (
+              <div key={title} className="bg-[#F4ECE1] dark:bg-[#252525] rounded-lg p-3 text-center">
+                <div className="text-xl mb-1">{icon}</div>
+                <div className="text-[0.78rem] font-semibold text-[#1A1A1A] dark:text-[#F0EDE8] font-['Inter']">{title}</div>
+                <div className="text-[0.72rem] text-[#999] font-['Inter'] mt-0.5">{desc}</div>
+              </div>
+            ))}
+          </div>
+        </div>
       </div>
     </main>
   );

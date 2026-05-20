@@ -60,6 +60,24 @@ export default function Login() {
           Don't have an account?{' '}
           <Link to="/register" className="text-[#B8860B] font-semibold hover:text-[#8B6508]">Create Account</Link>
         </p>
+
+        {/* Trust badges */}
+        <div className="mt-7 pt-6 border-t border-[#EEEEEE] dark:border-[#2A2A2A]">
+          <p className="text-center text-[0.72rem] text-[#999] uppercase tracking-[1px] font-['Inter'] mb-4">Member Benefits</p>
+          <div className="flex flex-col gap-2.5">
+            {[
+              { icon: '🚚', text: 'Free white-glove delivery on orders over $2,000' },
+              { icon: '🎨', text: 'Access to exclusive bespoke design consultations' },
+              { icon: '⭐', text: 'Early access to new collections and member-only sales' },
+              { icon: '🔒', text: 'Secure checkout with 256-bit SSL encryption' },
+            ].map(({ icon, text }) => (
+              <div key={text} className="flex items-center gap-3 text-[0.82rem] text-[#4A4A4A] dark:text-[#CCBBAA] font-['Inter']">
+                <span className="text-base shrink-0">{icon}</span>
+                <span>{text}</span>
+              </div>
+            ))}
+          </div>
+        </div>
       </div>
     </main>
   );

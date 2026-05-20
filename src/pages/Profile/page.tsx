@@ -141,6 +141,57 @@ export default function Profile() {
             </div>
           </div>
         </div>
+
+        {/* ── Recent Activity ── */}
+        <div className="mt-10">
+          <h3 className="text-[#1A1A1A] dark:text-[#F0EDE8] mb-5 pb-3 border-b border-[#EEEEEE] dark:border-[#2A2A2A]">
+            Recent Activity
+          </h3>
+          <div className="flex flex-col gap-3">
+            {[
+              { dot: 'bg-[#28a745]', text: <>Order <strong>#DEC-2847</strong> delivered — Modern Sofa, Charcoal Grey</>,       time: '2 days ago'  },
+              { dot: 'bg-[#B8860B]', text: <>Added <strong>Dining Table — Solid Oak</strong> to wishlist</>,                   time: '5 days ago'  },
+              { dot: 'bg-[#17a2b8]', text: <>Left a 5-star review for <strong>Comfort Chair — Beige</strong></>,               time: '1 week ago'  },
+              { dot: 'bg-[#28a745]', text: <>Order <strong>#DEC-2601</strong> shipped — Coffee Table, Tempered Glass</>,        time: '2 weeks ago' },
+              { dot: 'bg-[#B8860B]', text: <>Requested custom quote for <strong>L-Shape Sofa — Cream, 280 cm</strong></>,      time: '3 weeks ago' },
+            ].map(({ dot, text, time }, i) => (
+              <div key={i} className="flex items-center gap-3.5 bg-[#FAFAFA] dark:bg-[#1E1E1E] border border-[#EEEEEE] dark:border-[#2A2A2A] rounded-lg px-5 py-4">
+                <div className={`w-2.5 h-2.5 rounded-full shrink-0 ${dot}`} />
+                <p className="m-0 text-[0.88rem] flex-1 text-[#4A4A4A] dark:text-[#CCBBAA] font-['Inter']">{text}</p>
+                <span className="ml-auto text-[0.78rem] text-[#999] whitespace-nowrap font-['Inter']">{time}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* ── Preferences ── */}
+        <div className="mt-10">
+          <h3 className="text-[#1A1A1A] dark:text-[#F0EDE8] mb-5 pb-3 border-b border-[#EEEEEE] dark:border-[#2A2A2A]">
+            My Preferences
+          </h3>
+          <div className="flex flex-wrap gap-4">
+            {[
+              { icon: '🪵', label: 'Favourite Material', value: 'Solid Oak & Walnut' },
+              { icon: '🎨', label: 'Preferred Style',    value: 'Modern Minimalist' },
+              { icon: '🏠', label: 'Room Focus',         value: 'Living Room & Bedroom' },
+              { icon: '💰', label: 'Budget Range',       value: '$500 – $3,000 per piece' },
+              { icon: '🚚', label: 'Delivery Option',    value: 'White-Glove Assembly' },
+              { icon: '🌿', label: 'Sustainability',     value: 'FSC-Certified Materials Only' },
+            ].map(({ icon, label, value }) => (
+              <div
+                key={label}
+                className="flex-[1_1_220px] bg-[#FAFAFA] dark:bg-[#1E1E1E] border border-[#EEEEEE] dark:border-[#2A2A2A] rounded-lg px-5 py-4 flex items-center gap-4"
+              >
+                <span className="text-xl w-7 text-center shrink-0">{icon}</span>
+                <div>
+                  <div className="text-[0.72rem] text-[#999] uppercase tracking-[1px] font-semibold font-['Inter']">{label}</div>
+                  <div className="text-[0.9rem] text-[#1A1A1A] dark:text-[#F0EDE8] font-['Inter'] mt-0.5">{value}</div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+
       </main>
     </>
   );
