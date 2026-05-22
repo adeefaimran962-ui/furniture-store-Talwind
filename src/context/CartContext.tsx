@@ -24,8 +24,35 @@ const CartContext = createContext<CartContextType>({
   updateQty: () => {}, clearCart: () => {}, total: 0, count: 0,
 });
 
+const DEFAULT_ITEMS: CartItem[] = [
+  {
+    id: 'p1',
+    name: 'Modern Sofa',
+    price: 1200,
+    qty: 1,
+    image: '/images/sofa.jpg',
+    category: 'Sofa',
+  },
+  {
+    id: 'p2',
+    name: 'Dining Table',
+    price: 850,
+    qty: 1,
+    image: '/images/table.jpg',
+    category: 'Table',
+  },
+  {
+    id: 'p3',
+    name: 'Comfort Chair',
+    price: 420,
+    qty: 2,
+    image: '/images/comfort chair.jpg',
+    category: 'Chair',
+  },
+];
+
 export function CartProvider({ children }: { children: React.ReactNode }) {
-  const [items, setItems] = useState<CartItem[]>([]);
+  const [items, setItems] = useState<CartItem[]>(DEFAULT_ITEMS);
 
   const addItem = (item: Omit<CartItem, 'qty'>) => {
     setItems(prev => {
